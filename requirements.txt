@@ -17,4 +17,3 @@ gevent
 gunicorn
 beautifulsoup4
 mongoengine
-werkzeug.utils
