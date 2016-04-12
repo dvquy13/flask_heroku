@@ -1,0 +1,70 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+<body class="w3-lato">
+<div class="w3-row">
+<div class="w3-col w3-container m7 w3-border-blue w3-topbar">
+    <header class="w3-container" style="padding-top: -20px; margin-left: 14px; margin-top: -6px">
+        <h1 class="w3-lato w3-text-blue">{{ lecture.title }}</h1>
+
+        <!-- Brief card-->
+        <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
+            <header class="w3-container w3-grey w3-hover-blue">
+              <h6>Brief</h6>
+            </header>
+            <div class="w3-container">
+              {% for brief in lecture.brief %}
+                <li>
+                {{ brief }}
+                </li>
+                {%  endfor %}
+            </div>
+        </div>
+
+        <!-- Document card-->
+        <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
+            <header class="w3-container w3-grey w3-hover-blue">
+              <h6>Documents</h6>
+            </header>
+            <div class="w3-container">
+                {% for document in lecture.document %}
+                <li>
+                        <a href="{{ document["link"] }}"> {{ document["name"] }}</a>
+                </li>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Assignment card-->
+        <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
+            <header class="w3-container w3-grey w3-hover-blue">
+              <h6>Assignments</h6>
+            </header>
+        <div class="w3-container">
+            {% for assignment in lecture.assignment %}
+            <li>
+                    <a href="{{ assignment["link"] }}"> {{ assignment["name"] }}</a>
+            </li>
+            {% endfor %}
+        </div>
+    </div>
+    </header>
+</div>
+
+<!-- Lecture right side bar -->
+<div class="w3-col w3-container m5 w3-topbar w3-border-black">
+ <ul class="w3-ul" style="padding-top: 12px; margin-left: -16px">
+    {% for lecture in lecture_list %}
+        <nav class="w3-sidenav w3-white" style="width:100%">
+        <a href="/{{ lecture.href }}" class="w3-hover-blue"> {{ lecture.title }}</a>
+    {% endfor %}
+    </nav>
+    </ul>
+</div>
+</div>
+
+</body>
+
+{% endblock %}
+</html>

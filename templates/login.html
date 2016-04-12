@@ -1,0 +1,47 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+<div class="w3-row">
+  <div class="w3-container w3-third w3-topbar w3-border-blue">
+  </div>
+
+  <div class="w3-container w3-third w3-topbar w3-border-blue w3-lato">
+      <form action = "" method="post" class="w3-card w3-round w3-white w3-padding" style="margin-top: 200px; margin-bottom: 165px">
+        <p class="w3-lato">
+            <label class="w3-lato w3-text-blue">Username</label>
+            <input class="w3-input" type="text" name="username" value="{{ request.form.username }}">
+        </p>
+        <p>
+            <label class="w3-lato w3-text-blue">Password</label>
+            <input class="w3-input" type="password" name="password" value="{{ request.form.username }}">
+        </p>
+
+        <button type="submit" class="w3-btn w3-blue" style="margin-left: 160px;" value="Login" >Log in</button>
+      </form>
+
+      <p class="w3-container">{{ error }}</p>
+
+
+{#        <form action="" class="form-inline" method="post">#}
+{#			<input type="text" class="form-control" placeholder = "Username" name="username" value="{{request.form.username}}">#}
+{#			<input type="password" class="form-control" placeholder = "Password" name="password" value="{{request.form.password}}">#}
+{#			<input class="btn btn-default" type="submit" value="Login">#}
+{#		</form>#}
+  </div>
+
+
+  <div class="w3-container w3-third w3-topbar w3-border-blue">
+  </div>
+</div>
+
+
+
+</body>
+<footer class="w3-lato w3-grey w3-container w3-theme-d1 w3-center" style="margin-top: 135px">
+    <h6 class="w3-lato">Copyright 2016 C4E3 Team 3 </h6>
+</footer>
+
+{% endblock %}
+
+</html>

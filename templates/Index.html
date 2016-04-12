@@ -1,0 +1,80 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+<body class="w3-lato">
+<div class="w3-row">
+
+<!-- Class Summary -->
+<div class="w3-col w3-container m7 w3-border-blue w3-topbar w3-bottombar w3-border">
+        <header class="w3-container" style="padding-top: -20px; margin-left: 14px; margin-top: -6px">
+{#        <p>Hello {{ username }}</p>#}
+        <p class="w3-lato">
+            <h1 class="w3-lato w3-text-blue"> Class Summary: Python for Everyone </h1>
+            <h3 class="w3-lato" style="margin-top: 40px"> Organizers </h3>
+                <table class="w3-table">
+                    <tr class="w3-blue">
+                      <th>Title</th>
+                      <th>Name</th>
+                      <th>Mobile</th>
+                      <th>Email</th>
+                    </tr>
+                    <tr>
+                      <td>Teacher</td>
+                      <td>Huy Nguyen Quang</td>
+                      <td>+84 69696969</td>
+                      <td>huy.xxx@gmail.com</td>
+                    </tr>
+                    <tr>
+                      <td>Coach</td>
+                      <td>Hiep Tran Quang</td>
+                      <td>+84 66996699</td>
+                      <td>hiepdamdang@gmail.com</td>
+                    </tr>
+                </table>
+            <h3 class="w3-lato" style="margin-top: 40px"> Policy </h3>
+                <table class="w3-table">
+                    <tr>
+                        <td>Late arrival:</td>
+                        <td>10.000 VND</td>
+                        {% for i in range(20) %}
+                            <td></td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Submit assignment after deadline:</td>
+                        <td>20.000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Not submit assignment even after deadline:</td>
+                        <td>50.000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Not turn off electricity after class:</td>
+                        <td>10.000 VND</td>
+                    </tr>
+                </table>
+
+        </header>
+    </div>
+
+<!-- Lecture right side bar -->
+<div class="w3-col w3-container m5 w3-topbar w3-border-black">
+ <ul class="w3-ul" style="padding-top: 12px; margin-left: -16px">
+    {% for lecture in lecture_list %}
+        <nav class="w3-sidenav w3-white" style="width:100%">
+        <a href="/{{ lecture.href }}" class="w3-hover-blue"> {{ lecture.title }}</a>
+    {% endfor %}
+    </nav>
+    </ul>
+</div>
+</div>
+</body>
+
+<footer class="w3-lato w3-grey w3-container w3-center" style="margin-top: 165px">
+    <h6 class="w3-lato">Copyright 2016 C4E3 Team 3 </h6>
+</footer>
+
+{% endblock %}
+
+</html>
