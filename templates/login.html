@@ -1,6 +1,43 @@
-{% extends "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMS Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/mycss.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+    <style>
+    .w3-lato {
+      font-family: 'Lato', sans-serif;
+    }
+    .rightAbsolute {
+        position: absolute;
+        right: 0%;
+    }
 
-{% block body %}
+    .botRelative {
+        position: relative;
+        bottom: 0%;
+        width: 100%;
+    }
+
+    .topRelative {
+        position: relative;
+        top: 0%;
+        width: 100%;
+    }
+
+    </style>
+</head>
+
+<body class="w3-lato">
+
+<!-- Brand -->
+<header class= "w3-lato w3-row" style="margin-left: 40px; margin-bottom: 5px; margin-top: 20px">
+    <span class="w3-navbar w3-blue w3-xlarge" style="padding-bottom: 10px; padding-top: 10px; padding-left: 10px; padding-right: 10px; text-align: center">
+            <a>Python for Everyone</a>
+    </span>
+</header>
 
 <div class="w3-row">
   <div class="w3-container w3-third w3-topbar w3-border-blue">
@@ -18,9 +55,8 @@
         </p>
 
         <button type="submit" class="w3-btn w3-blue" style="margin-left: 160px;" value="Login" >Log in</button>
+        <p class="w3-container">{{ error }}</p>
       </form>
-
-      <p class="w3-container">{{ error }}</p>
 
 
 {#        <form action="" class="form-inline" method="post">#}
@@ -41,7 +77,5 @@
 <footer class="w3-lato w3-grey w3-container w3-theme-d1 w3-center" style="margin-top: 135px">
     <h6 class="w3-lato">Copyright 2016 C4E3 Team 3 </h6>
 </footer>
-
-{% endblock %}
 
 </html>
