@@ -1,6 +1,6 @@
 from mongoengine import *
 from flask import *
-
+import os
 
 #Upload data to Mongo
 connect('nim', host='mongodb://hiep:hiepxanh@ds015929.mlab.com:15929/nim')
@@ -11,7 +11,6 @@ class Lecture(Document):
     brief = ListField(StringField())
     document = ListField(DictField())
     assignment = ListField(DictField())
-
 
 
 class Users(Document):
@@ -70,11 +69,30 @@ def index():
     return render_template("Index.html",
                            lecture_list = lecture_list)
 
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
+
+
+# Upload files
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+@app.route("/upload", methods=['POST'])
+def upload():
+    target = os.path.join(APP_ROOT, 'baitap/')
+    print(target)
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    for file in request.files.getlist("file"):
+        print(file)
+        filename = file.filename
+        destination = "".join([target, filename])
+        print(destination)
+        file.save(destination)
+
+    return render_template("upload complete.html")
 
 
 if __name__ == '__main__':

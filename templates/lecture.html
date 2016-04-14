@@ -49,7 +49,7 @@
         <!-- Brief card-->
         <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
             <header class="w3-container w3-grey w3-hover-blue">
-              <h6>Brief</h6>
+              <h6 class="w3-lato">Brief</h6>
             </header>
             <div class="w3-container">
               {% for brief in lecture.brief %}
@@ -63,7 +63,7 @@
         <!-- Document card-->
         <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
             <header class="w3-container w3-grey w3-hover-blue">
-              <h6>Documents</h6>
+              <h6 class="w3-lato">Documents</h6>
             </header>
             <div class="w3-container">
                 {% for document in lecture.document %}
@@ -77,14 +77,34 @@
         <!-- Assignment card-->
         <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
             <header class="w3-container w3-grey w3-hover-blue">
-              <h6>Assignments</h6>
+              <h6 class="w3-lato">Assignments</h6>
             </header>
         <div class="w3-container">
             {% for assignment in lecture.assignment %}
             <li>
-                    <a href="{{ assignment["link"] }}"> {{ assignment["name"] }}</a>
+                <a href="{{ assignment["link"] }}"> {{ assignment["name"] }}</a>
             </li>
             {% endfor %}
+
+            <!-- Upload file -->
+            <form class="w3-container" style="margin-top: 10px; margin-bottom: 10px" id = "upload-form" action ="{{ url_for('upload') }}" method ="POST" enctype="multipart/form-data">
+                <input type="file" name ="file" accept="*" multiple>
+                <input class="w3-btn w3-blue" type="submit" value="send">
+{#                    <!-- Trigger/Open the Modal -->#}
+{#                    <input onclick="document.getElementById('id01').style.display='block'"#}
+{#                    class="w3-btn w3-blue" type="submit" value="send" ></input>#}
+{##}
+{#                    <!-- The Modal -->#}
+{#                    <div id="id01" class="w3-modal">#}
+{#                      <div class="w3-modal-content">#}
+{#                        <div class="w3-container">#}
+{#                          <span onclick="document.getElementById('id01').style.display='none'"#}
+{#                          class="w3-closebtn">&times;</span>#}
+{#                          <p>File uploaded</p>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                    </div>#}
+            </form>
         </div>
     </div>
     </header>
@@ -102,7 +122,7 @@
 </div>
 </div>
 
-<footer class="w3-lato w3-grey w3-container w3-center w3-row botRelative" style="margin-top: 17%">
+<footer class="w3-lato w3-grey w3-container w3-center w3-row botRelative" style="margin-top: 15.5%">
     <h6 class="w3-lato">Copyright 2016 C4E3 Team 3 </h6>
 </footer>
 

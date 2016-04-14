@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File uploaded</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/mycss.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+    <style>
+    .w3-lato {
+      font-family: 'Lato', sans-serif;
+    }
+    .rightAbsolute {
+        position: absolute;
+        right: 0%;
+    }
+
+    .botRelative {
+        position: relative;
+        bottom: 0%;
+        width: 100%;
+    }
+
+    .topRelative {
+        position: relative;
+        top: 0%;
+        width: 100%;
+    }
+
+    </style>
+</head>
+
+<body class="w3-lato">
+<p style="margin-left: 16px">Congrats! Upload completed!</p>
+<button class="w3-btn w3-blue" onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>
