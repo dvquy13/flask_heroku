@@ -87,9 +87,9 @@
             {% endfor %}
 
             <!-- Upload file -->
-            <form class="w3-container" style="margin-top: 10px; margin-bottom: 10px" id = "upload-form" action ="{{ url_for('upload') }}" method ="POST" enctype="multipart/form-data">
+            <form class="w3-container" style="margin-top: 10px; margin-bottom: 10px" id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
                 <input type="file" name ="file" accept="*" multiple>
-                <input class="w3-btn w3-blue" type="submit" value="send">
+                <input class="w3-btn w3-blue" type="submit" value="Submit">
 {#                    <!-- Trigger/Open the Modal -->#}
 {#                    <input onclick="document.getElementById('id01').style.display='block'"#}
 {#                    class="w3-btn w3-blue" type="submit" value="send" ></input>#}
