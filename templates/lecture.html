@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>CMS Lecture</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/mycss.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
     .w3-lato {
       font-family: 'Lato', sans-serif;
@@ -49,14 +50,26 @@
         <!-- Brief card-->
         <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
             <header class="w3-container w3-grey w3-hover-blue">
-              <h6 class="w3-lato">Brief
-                <span>
-{#            <span href="http://google.com" class="material-icons" style="font-size:14px">mode_edit#}
-{#            <form action="" method="get">#}
-                <a href="/index/{{ lecture.edit }}"> <button class="material-icons" style="font-size:14px">mode_edit</button></a>
-{#            </form>#}
-            </span>
-                  </h6>
+                <h6 class="w3-lato">Brief
+                    <span>
+                        <i onclick="document.getElementById('id01').style.display='block'" class="w3-right material-icons w3-small"
+                           style="font-size:24px">mode_edit</i>
+                    </span>
+                    <div id="id01" class="w3-modal">
+                      <div class="w3-modal-content">
+                        <div class="w3-container">
+                          <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+                          <form action = "" method="post" class="w3-card w3-round w3-white w3-padding" style="margin-top: 200px; margin-bottom: 165px">
+                              <p class="w3-lato">
+                                  <label class="w3-lato w3-text-blue">Update</label>
+                                  <input class="w3-input" type="text" name="update">
+                              </p>
+                              <button type="submit" class="w3-btn w3-blue" style="margin-left: 160px;" value="Submit">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                </h6>
             </header>
             <div class="w3-container">
               {% for brief in lecture.brief %}

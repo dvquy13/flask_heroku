@@ -66,12 +66,17 @@ def login():
     return render_template('login.html', error=error)
 
 
-@app.route('/<lectureHref>/')
+@app.route('/<lectureHref>/', methods=['GET', 'POST'])
 @login_required
 def lectureHref(lectureHref):
     lecture_list = Lecture.objects
     for lecture in lecture_list:
         if lecture.href == lectureHref:
+            if request.method == "POST":
+                upd = request.form["update"]
+                lecture.brief.append(upd)
+                lecture.save()
+
             return render_template("lecture.html",
                                    lecture=lecture,
                                    lecture_list=lecture_list)
@@ -132,15 +137,19 @@ def upload():
 # def lecture1_edit():
 #     return render_template("lecture-edit.html")
 
-@app.route('/index/<lectureEdit>')
-@login_required
-def lectureEdit(lectureEdit):
-    lecture_list = Lecture.objects
-    print(lecture_list)
-    for lecture in lecture_list:
-        if lecture.edit == lectureEdit:
-            return render_template("lecture-edit.html",
-                                   lecture=lecture)
+# @app.route('/index/<lectureEdit>', methods=['GET', 'POST'])
+# @login_required
+# def lectureEdit(lectureEdit):
+#     lecture_list = Lecture.objects
+#     for lecture in lecture_list:
+#         if lecture.edit == lectureEdit:
+#             if request.method == "POST":
+#                 upd = request.form["update"]
+#                 lecture.brief.append(upd)
+#                 lecture.save()
+#
+#             return render_template("lecture-edit.html",
+#                                    lecture=lecture)
 
 if __name__ == '__main__':
     app.run()
