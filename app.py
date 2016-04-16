@@ -66,17 +66,26 @@ def login():
     return render_template('login.html', error=error)
 
 
-@app.route('/<lectureHref>/', methods=['GET', 'POST'])
+@app.route('/<lectureHref>/', methods= ['GET', 'POST'])
 @login_required
 def lectureHref(lectureHref):
     lecture_list = Lecture.objects
     for lecture in lecture_list:
         if lecture.href == lectureHref:
             if request.method == "POST":
-                upd = request.form["update"]
-                lecture.brief.append(upd)
-                lecture.save()
+                u = request.form['update']
+                for brief in lecture.brief:
+                    if u == brief:
+                        lecture_brief = lecture.brief
+                        lecture_brief.remove(u)
+                        lecture.save()
+                        return render_template("lecture.html",
+                                   lecture=lecture,
+                                   lecture_list=lecture_list)
 
+                lecture_brief = lecture.brief
+                lecture_brief.append(u)
+                lecture.save()
             return render_template("lecture.html",
                                    lecture=lecture,
                                    lecture_list=lecture_list)

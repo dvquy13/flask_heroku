@@ -28,6 +28,24 @@
         width: 100%;
     }
 
+#footer {
+background: #222;
+border-top: 5px solid #333;
+color: #ccc;
+font-weight: bold;
+height: 50px;
+line-height: 50px;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+text-align: center;
+}
+
+.w3-comic {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
     </style>
 </head>
 
@@ -73,9 +91,7 @@
             </header>
             <div class="w3-container">
               {% for brief in lecture.brief %}
-                <li>
-                {{ brief }}
-                </li>
+                <li>{{ brief }}</li>
                 {%  endfor %}
             </div>
         </div>
@@ -142,11 +158,14 @@
 </div>
 </div>
 
-<footer class="w3-lato w3-grey w3-container w3-theme-d1 w3-center" style="margin-top: 150px">
-    <h6 class="w3-lato">Copyright 2016 C4E3 Team 3 </h6>
-    <img src="http://techkids.edu.vn/wp-content/uploads/2015/08/Psd.png" style="width: 200px;">
-</footer>
-
 </body>
+
+<div class="w3-container w3-center w3-comic">
+        <p class="w3-xlarge">Powered by</p>
+        <img src="http://techkids.edu.vn/wp-content/uploads/2015/08/Psd.png" style="width: 300px;">
+</div>
+<footer class="w3-lato w3-grey w3-container w3-theme-d1 w3-center" >
+    <h6 class="w3-lato">Copyright 2016 Team 3 Sói ca</h6>
+</footer>
 
 </html>
