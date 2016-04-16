@@ -49,7 +49,14 @@
         <!-- Brief card-->
         <div class="w3-card w3-hover-shadow" style="margin-top: 40px">
             <header class="w3-container w3-grey w3-hover-blue">
-              <h6 class="w3-lato">Brief</h6>
+              <h6 class="w3-lato">Brief
+                <span>
+{#            <span href="http://google.com" class="material-icons" style="font-size:14px">mode_edit#}
+{#            <form action="" method="get">#}
+                <a href="/index/{{ lecture.edit }}"> <button class="material-icons" style="font-size:14px">mode_edit</button></a>
+{#            </form>#}
+            </span>
+                  </h6>
             </header>
             <div class="w3-container">
               {% for brief in lecture.brief %}
@@ -122,8 +129,9 @@
 </div>
 </div>
 
-<footer class="w3-lato w3-grey w3-container w3-center w3-row botRelative" style="margin-top: 15.5%">
+<footer class="w3-lato w3-grey w3-container w3-theme-d1 w3-center" style="margin-top: 150px">
     <h6 class="w3-lato">Copyright 2016 C4E3 Team 3 </h6>
+    <img src="http://techkids.edu.vn/wp-content/uploads/2015/08/Psd.png" style="width: 200px;">
 </footer>
 
 </body>

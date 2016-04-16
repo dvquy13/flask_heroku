@@ -15,6 +15,7 @@ class Lecture(Document):
     brief = ListField(StringField())
     document = ListField(DictField())
     assignment = ListField(DictField())
+    edit = StringField()
 
 
 class Users(Document):
@@ -32,12 +33,11 @@ login_manager = LoginManager()
 app = Flask(__name__)
 app.secret_key = 'Why should I tell you my secret key?'
 
+lecturelist = Lecture.objects
+for lecture in lecturelist:
+    print(lecture.edit)
+
 login_manager.init_app(app)
-
-# users = {
-# "qhuydtvt@gmail.com": User()
-# }
-
 
 @login_manager.user_loader
 def user_loader(user_id):
@@ -81,7 +81,6 @@ def lectureHref(lectureHref):
 @app.route('/<path:path>/')
 def static_file(path):
     return app.send_static_file(path)
-
 
 @app.route('/index/')
 @login_required
@@ -129,6 +128,19 @@ def upload():
 
     return render_template("upload complete.html")
 
+# @app.route('/lecture1-edit/')
+# def lecture1_edit():
+#     return render_template("lecture-edit.html")
+
+@app.route('/index/<lectureEdit>')
+@login_required
+def lectureEdit(lectureEdit):
+    lecture_list = Lecture.objects
+    print(lecture_list)
+    for lecture in lecture_list:
+        if lecture.edit == lectureEdit:
+            return render_template("lecture-edit.html",
+                                   lecture=lecture)
 
 if __name__ == '__main__':
     app.run()
